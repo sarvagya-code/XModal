@@ -19,28 +19,24 @@ const App = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!username || !email || !phone || !dob) {
-            alert('Please fill in all fields.');
-            return;
-        }
-
-        if (!email.includes('@')) {
-            alert('Invalid email. Please check your email address.');
-            return;
-        }
-
-        if (!/^\d{10}$/.test(phone)) {
-            alert('Invalid phone number. Please enter a 10-digit phone number.');
-            return;
-        }
-
         const today = new Date();
         const selectedDate = new Date(dob);
 
-        if (selectedDate > today) {
-            alert('Invalid date of birth. Please enter a valid date.');
-            return;
-        }
+        if (!email.includes('@')) {
+          alert('Invalid email. Please check your email address.');
+          return;
+        }else if (!/^\d{10}$/.test(phone)) {
+          alert('Invalid phone number. Please enter a 10-digit phone number.');
+          return;
+        }else if (selectedDate > today) {
+          alert('Invalid date of birth. Please enter a valid date.');
+          return;
+        }else if(!username || !email || !phone || !dob) {
+          alert('Please fill in all fields.');
+          return;
+      }
+
+        
 
         // If all validations pass, you can perform further actions such as submitting data to a server or resetting the form
 
