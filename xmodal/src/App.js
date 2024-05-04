@@ -5,7 +5,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [phNumber, setPhNumber] = useState('');
+  const [phone, setPhone] = useState('');
   const [dob, setDob] = useState('');
 
   const openModal = () => {
@@ -18,13 +18,13 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!username || !email || !phNumber || !dob){
+    if(!username || !email || !phone || !dob){
       return alert('Please fill in all fields.');
     }
     if(!email.includes('@')){
       return alert('Invalid email. Please check your email address.');
     }
-    if(!/^\d{10}$/.test(phNumber)){
+    if(!/^\d{10}$/.test(phone)){
       return alert('Invalid phone number. Please enter a 10-digit phone number.');
     }
     const todatDate = new Date();
@@ -63,9 +63,9 @@ function App() {
               <label htmlFor='phone'>Phone Number:</label>
               <input
                   type='tel'
-                  id='phNumber'
-                  value={phNumber}
-                  onChange={e => setPhNumber(e.target.value)} 
+                  id='phone'
+                  value={phone}
+                  onChange={e => setPhone(e.target.value)} 
               />
               <label htmlFor='dob'>Date of Birth:</label>
               <input
